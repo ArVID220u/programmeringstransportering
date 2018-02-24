@@ -1,47 +1,18 @@
-\problemname{Snömur}
-Efter förnedringen i snöbollskriget tänker Sverige bygga en snömur, och tvinga Finland att betala för den.
-Muren ska ha en viss bredd $W$, och vara så hög som möjligt (it's going to be \emph{yuuuge}!).
+\problemname{Programmerartransportering}
 
-Som byggmaterial finns det ett antal snöblock som alla har höjden 1, men kan ha olika bredder.
-När muren konstrueras måste varje block uppfylla följande en regel: på raden under blocket,
-på de två positioner blocket har sina ändpunkter, måste det ligga ett block precis till höger och vänster om punkten,
-undantaget början och slutet på en rad, där det istället måste finnas en ändpunkt \emph{på varje rad}.
+Katastrof. Arvid har blivit ansvarig för att trasnportera icke-stockholmarna till vandrarhemmet. Detta är ingen lätt uppgift eftersom programmerare har en tendens att vandra iväg från gruppen och gå vilse. 
 
-Det får dessutom inte finnas hålrum på samma position på två direkt efterföljande rader \emph{i muren} (den tomma raden
-precis ovanför muren räknas inte).
+Som tur är har Avid $k$ kompisar som han kan ta hjälp av. Han har följande strategi: De $k$ kopmisarna ska hålla i ett rep och innesluta de $n$ programmerarna för att undvika att de smiter iväg. Dock är budgeten begränsad och Arvid vill därför ha ett så kort rep som möjligt. Notera att repet får röra vid programmerarna men inte applicera något tryck på dem (repet måste alltså vara som en linje mellan kompisarna). 
 
-Följande bild illustrerar några otillåtna (vänster) och tillåtna (höger) murar:
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.7\textwidth]{mur.png}
-	\caption{Ett antal otillåtna (vänster) och tillåtna (höger) murar.}
-\end{figure}
-
-Givet bredden $W$ och de möjliga blocken, konstruera en så hög mur som möjligt.
+Din uppgift är därför att givet de $n$ programmerarnas positioner vid en viss tidpunkt, räkna ut hur långt rep de $k$  kompisarna behöver (kompisarna behöver inte nödvändigtvis stå på heltalskoordinater). 
 
 \section*{Indata}
-Den första raden innehåller tre heltal heltal $T$, $N$ och $W$ - testfallets nummer, antalet block och bredden på muren.
-Nästa rad innehåller $N$ heltal, bredden på varje block.
-
-Du kan ladda ner alla testfall på följande länk: \url{http://progolymp.se/uploads/snomur.zip}.
+Den första raden innehåller två heltal $1 \le n \le 40, 3 \le k \le 12$: antalet programmerare.
+Därefter följer $n$ rader, en per programmerare.
+Varje rad innehåller två heltal $x, y$ ($0 \le x, y \le 100$), vilket betyder att personen står på plats $(x, y)$. Det är garanterat att inga två personer står på samma plats.
 
 \section*{Utdata}
-På den första raden ska du skriva ut höjden på din mur, $H$.
-
-Du ska sedan skriva ut $H$ rader, en för varje rad i din mur.
-Rad $i$ ska först ha ett tal $B$, antalet block på den raden i din mur.
-Detta ska följas av $B$ par av heltal $P_{i,j} L_{i,j}$ positionen och längden för det $j$:te blocket på raden.
-
-\section*{Inskickning}
-När du skickar in din lösning räcker det med ett program som läser in testfallets nummer $T$ och skriver ut lösningen för det testfallet.
-
-Om du inte vill skriva ett sådant program själv kan du använda en sida vi konstruerade: \url{http://progolymp.se/uploads/snokaosgen.html} där du kan klistra in
-alla dina lösningar och få ett Python 3-program som du kan skicka in.
+Skriv ut $k$ rader, en per kompis. Varje rad ska innehålla två tal, $x, y$, positionen för kompisen.
 
 \section*{Poängsättning}
-Antag att på ett testfall värt $P$ poäng så får ditt program höjden $X$, och det bästa programmet höjden $Y$. Då får du $P \times \frac{X}{Y}$ poäng.
-
-Innan tävlingsslut kommer alla lösningar rättas med $Y = 2 \times \frac{\sum{\text{höjder}}}{W}$
-
-Totalt finns 10 testfall, och varje testfall kan ge upp till 10 poäng.
+Det kommer vara 10 testfall där det kommer vara $3, 4, ... 12$ kompisar. Poängen för varje testfall kommer vara $$\frac{400 - l}{10},$$ där $l$ är längden på repet från svaret. 
